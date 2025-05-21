@@ -52,10 +52,8 @@ The `DecentralizedLottery.sol` contract is deployed and configured to interact w
 ## Frontend Setup & Access
 
 The DApp frontend allows users to interact with the deployed smart contract.
-
-1.  **Accessing the Hosted Frontend:**
-    *   The DApp frontend is hosted at: **`[YOUR_GITHUB_PAGES_LINK_OR_OTHER_HOSTING_URL_HERE]`**
-    *(Please replace the above placeholder with the actual URL where your `index.html` is accessible, e.g., a GitHub Pages link.)*
+**Accessing the Hosted Frontend:**
+*   The DApp frontend is hosted at: **`http://jimmytsang1973.github.io/comp4451-decentralized-lottery`**
 
 ## How to Play
 
@@ -78,8 +76,8 @@ The DApp frontend allows users to interact with the deployed smart contract.
 ## Key Files
 
 *   `index.html`: The main structure of the DApp frontend.
-*   `style.css`: CSS styles for the frontend.
-*   `app.js`: Contains all the JavaScript logic for frontend interactions, Ethers.js setup, contract ABI, and contract address.
+*   `css/style.css`: CSS styles for the frontend.
+*   `js/app.js`: Contains all the JavaScript logic for frontend interactions, Ethers.js setup, contract ABI, and contract address.
 *   `contracts/DecentralizedLottery.sol`: The Solidity smart contract code.
 
 ## Security Notes
