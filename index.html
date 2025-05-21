@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP4541 Lottery DApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>COMP4541 Lottery DApp</h1>
+    <button id="connectWalletBtn">Connect Wallet</button>
+    <p>Connected Account: <span id="connectedAccount">Not Connected</span></p>
+    <hr>
+
+    <h2>Contract Info</h2>
+    <p>Contract Address: <span id="contractAddressDisplay"></span></p>
+    <p>Owner: <span id="ownerAddress"></span></p>
+    <p>Ticket Price: <span id="ticketPrice"></span> ETH</p>
+    <p>Current Draw ID for New Tickets: <span id="currentDrawId"></span></p>
+    <p>Rollover Balance: <span id="rolloverBalance"></span> ETH</p>
+    <p>Commission Balance: <span id="commissionBalance"></span> ETH</p>
+    <button id="refreshInfoBtn">Refresh Info</button>
+    <hr>
+
+    <h2>Player Actions</h2>
+    <div class="action-section">
+        <h3>Purchase Ticket for Current Draw (<span id="purchaseDrawId"></span>)</h3>
+        <label for="ticketNumbers">Enter 6 numbers (1-49, comma-separated):</label>
+        <input type="text" id="ticketNumbers" placeholder="e.g., 1,5,10,23,30,45">
+        <button id="purchaseTicketBtn">Purchase Ticket</button>
+    </div>
+
+    <div class="action-section">
+        <h3>Check Your Winnings</h3>
+        <label for="checkWinningsDrawId">Draw ID:</label>
+        <input type="number" id="checkWinningsDrawId" placeholder="Draw ID">
+        <button id="checkWinningsBtn">Check Winnings</button>
+        <p>Your Winnings: <span id="winningsAmount"></span> ETH</p>
+    </div>
+
+    <div class="action-section">
+        <h3>Claim Prize</h3>
+        <label for="claimPrizeDrawId">Draw ID:</label>
+        <input type="number" id="claimPrizeDrawId" placeholder="Draw ID">
+        <button id="claimPrizeBtn">Claim Prize</button>
+    </div>
+
+    <div class="action-section">
+        <h3>View Your Tickets for a Draw</h3>
+        <label for="viewTicketsDrawId">Draw ID:</label>
+        <input type="number" id="viewTicketsDrawId" placeholder="Draw ID">
+        <button id="viewPlayerTicketsBtn">View My Tickets</button>
+        <div id="playerTicketsDisplay"></div>
+    </div>
+    
+    <div class="action-section">
+        <h3>Get Ticket Count for Draw</h3>
+        <label for="ticketCountDrawId">Draw ID:</label>
+        <input type="number" id="ticketCountDrawId" placeholder="Draw ID">
+        <button id="getTicketCountBtn">Get Count</button>
+        <p>Tickets Sold: <span id="ticketCountResult"></span></p>
+    </div>
+    <hr>
+
+    <h2>Draw Information</h2>
+    <div class="action-section">
+        <h3>View Draw Details</h3>
+        <label for="viewDrawDetailsId">Draw ID:</label>
+        <input type="number" id="viewDrawDetailsId" placeholder="Draw ID">
+        <button id="viewDrawDetailsBtn">View Details</button>
+        <p>Status: <span id="drawStatusDisplay"></span></p>
+        <p>Drawn Numbers: <span id="drawnNumbersDisplay">N/A</span></p>
+        <p>Extra Number: <span id="extraNumberDisplay">N/A</span></p>
+    </div>
+    <hr>
+
+
+    <h2>Owner Actions</h2>
+    <div id="ownerActionsSection" style="display:none;">
+        <h3>Owner Panel</h3>
+        <div class="action-section">
+            <h4>Start Draw Early</h4>
+            <p>This will start the VRF process for the current draw (<span id="startEarlyDrawIdDisplay"></span>) if conditions are met.</p>
+            <button id="startDrawEarlyBtn">Start Draw Early</button>
+        </div>
+        <div class="action-section">
+            <h4>Process Winnings & Finalize Draw</h4>
+            <label for="finalizeDrawId">Draw ID to Finalize:</label>
+            <input type="number" id="finalizeDrawId" placeholder="e.g., Current Draw - 1">
+            <button id="processWinningsBtn">Process & Finalize</button>
+        </div>
+        <div class="action-section">
+            <h4>Withdraw Commission</h4>
+            <button id="withdrawCommissionBtn">Withdraw Commission</button>
+            <p>Available Commission: <span id="commissionBalanceForWithdraw"></span> ETH</p>
+        </div>
+    </div>
+    <hr>
+
+    <h2>Events Log / Status</h2>
+    <div id="eventsLog" class="log-box"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
